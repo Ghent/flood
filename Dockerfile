@@ -26,6 +26,11 @@ COPY server ./server
 COPY shared ./shared
 COPY scripts ./scripts
 COPY config.docker.js ./config.js
+
+# Set the baseURI as needed
+ARG FLOOD_BASE_URI=/
+ENV FLOOD_BASE_URI $FLOOD_BASE_URI
+
 RUN npm run build && \
     npm prune --production
 
